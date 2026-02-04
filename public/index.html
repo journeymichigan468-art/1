@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Desktop Protocol - GitHub Actions Workflows</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Remote Desktop Protocol</h1>
+      <p class="subtitle">Windows 11 Remote Desktop via GitHub Actions</p>
+    </header>
+
+    <main>
+      <section class="info-card">
+        <h2>About This Project</h2>
+        <p>This project provides GitHub Actions workflows that create temporary Windows 11 virtual machines with remote desktop access. It uses:</p>
+        <ul>
+          <li><strong>Tailscale</strong> - Secure mesh VPN for connectivity</li>
+          <li><strong>RustDesk</strong> - Open-source remote desktop software</li>
+          <li><strong>Chrome Remote Desktop</strong> - Optional additional access method</li>
+        </ul>
+      </section>
+
+      <section class="info-card warning">
+        <h2>Important Notice</h2>
+        <p>This project runs on <strong>GitHub Actions</strong>, not on Replit. The workflows must be triggered from the GitHub repository's Actions tab.</p>
+      </section>
+
+      <section class="info-card">
+        <h2>Available Workflows</h2>
+        <div class="workflow">
+          <h3>RDP + Tailscale + RustDesk (A/B)</h3>
+          <p>Creates Windows 11 VMs with RDP access via Tailscale. Supports up to 10 parallel instances.</p>
+        </div>
+        <div class="workflow">
+          <h3>Stop Workflow</h3>
+          <p>Cleans up and removes devices from Tailscale network.</p>
+        </div>
+      </section>
+
+      <section class="info-card">
+        <h2>How to Use</h2>
+        <ol>
+          <li>Fork this repository on GitHub</li>
+          <li>Go to the <strong>Actions</strong> tab in your forked repo</li>
+          <li>Select a workflow to run</li>
+          <li>Enter your Tailscale credentials and configuration</li>
+          <li>Click "Run workflow"</li>
+          <li>Connect using the provided credentials</li>
+        </ol>
+      </section>
+
+      <section class="info-card">
+        <h2>Required Credentials</h2>
+        <ul>
+          <li><strong>Tailscale Tailnet</strong> - Your Tailscale account (e.g., you@gmail.com)</li>
+          <li><strong>Tailscale API Key</strong> - Device admin API key</li>
+          <li><strong>Tailscale Auth Key</strong> - Reusable or ephemeral auth key</li>
+        </ul>
+      </section>
+
+      <section class="info-card">
+        <h2>Default RDP Credentials</h2>
+        <div class="credentials">
+          <p><strong>Username:</strong> Bullettemporary</p>
+          <p><strong>Password:</strong> Bullet@12345</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>This is an informational page. The actual RDP functionality runs on GitHub Actions.</p>
+    </footer>
+  </div>
+</body>
+</html>
