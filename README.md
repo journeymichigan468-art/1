@@ -1,60 +1,56 @@
-# 🖥️ Remote Desktop Protocol
+# Production-Safe Master Agent System
 
-Access a **Windows 11 Remote Desktop** with **free 4GB/s internet speed** instantly!  
-This project provides a quick and reliable way to connect to a powerful remote environment for development, testing, or personal use. 🚀
+This project now provides a secure backend proxy for AI execution while keeping the existing frontend UI unchanged.
 
----
+## Architecture
 
-## 📜 Description
+- Static frontend served from `public/`
+- Express backend API in `server/`
+- Server-side AI execution through Gemini API (`AI_API_KEY` in env)
+- JWT-style authentication (signed server-side)
+- Rate limiting + role-based quota enforcement
+- Server-side execution logging
 
-The **Remote Desktop Protocol (RDP)** project allows users to connect to a **Windows 11** virtual machine in the cloud, offering:
+## Project Structure
 
-- ⚡ **4GB/s Internet Speed**  
-- 💻 **Windows 11 OS**  
-- 🌍 **Free and Easy Remote Access**  
-- 🔒 **Secure and Fast Connection**  
+```
+server/
+  index.js
+  routes/agent.js
+  services/aiService.js
+  middleware/
+    auth.js
+    rateLimiter.js
+    usageQuota.js
+  utils/encryption.js
+public/
+  index.html
+  styles.css
+server.js
+```
 
----
+## Environment Variables
 
-## ⚙️ Setup & Installation
+Copy `.env.example` and set values in your deployment environment:
 
-Getting started is super easy! Just follow the tutorial below:
+- `AI_API_KEY`: Gemini API key (server-side only)
+- `JWT_SECRET`: secret used to sign and verify JWT tokens
+- `PORT`: server port (optional, defaults to `5000`)
 
-🎥 **Watch the setup video:**  
-👉 [How to Set Up Remote Desktop Protocol (YouTube)](https://youtu.be/bBxejfjInzc)
+## API Endpoints
 
----
+- `POST /api/auth/token`
+  - Body: `{ "userId": "u_123", "role": "free|pro|admin" }`
+  - Returns a signed token for testing/integration.
+- `POST /api/execute`
+  - Headers: `Authorization: Bearer <token>`
+  - Body: `{ "subtask": "...", "systemPrompt": "..." }`
+  - Executes AI call through backend proxy.
 
-## 🧰 Features
+## Run
 
-- 💨 Blazing-fast internet connection  
-- 🪟 Full Windows 11 experience  
-- 🌐 Remote access from any device  
-- 🧩 Simple and lightweight setup  
-- 🔧 No complex configurations needed  
+```bash
+npm start
+```
 
----
-
-## 🧑‍💻 Usage
-
-1. Follow the video tutorial above.  
-2. Launch your RDP session.  
-3. Enjoy seamless Windows 11 experience with lightning-fast internet.  
-
----
-
-
-## 📄 License
-
-This project is open-source — feel free to use, modify, and share it responsibly.  
-
----
-
-## 💬 Contact
-
-If you have questions, suggestions, or feedback, feel free to open an issue or comment on the YouTube video!  
-📺 [Watch Tutorial on YouTube](https://youtu.be/bBxejfjInzc)
-
----
-
-⭐ **If you find this project helpful, don’t forget to star the repo!**
+Then open `http://localhost:5000`.

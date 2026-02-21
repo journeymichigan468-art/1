@@ -76,5 +76,27 @@
       <p>Use AI as a pair programmer: fast drafts, careful review, better HTML.</p>
     </footer>
   </div>
+
+  <script>
+    async function callBackend(subtask, systemPrompt) {
+      const response = await fetch('/api/execute', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token') || ''}`
+        },
+        body: JSON.stringify({ subtask, systemPrompt })
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        throw new Error(errorBody.error || 'Execution failed');
+      }
+
+      return response.json();
+    }
+
+    window.masterAgentApi = { callBackend };
+  </script>
 </body>
 </html>
