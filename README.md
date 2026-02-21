@@ -58,3 +58,15 @@ If you have questions, suggestions, or feedback, feel free to open an issue or c
 ---
 
 ⭐ **If you find this project helpful, don’t forget to star the repo!**
+
+## 🔄 n8n Code Node Example
+
+If you are wiring this into an n8n workflow, you can use the ready-made Code node script in:
+
+- `n8n/code-node-example.js`
+
+It expects one input item containing a `task` field, then returns:
+
+- `originalTask`
+- `modifiedTask` (title-cased)
+- `count` (word count)
