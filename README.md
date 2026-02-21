@@ -58,3 +58,7 @@ If you have questions, suggestions, or feedback, feel free to open an issue or c
 ---
 
 ⭐ **If you find this project helpful, don’t forget to star the repo!**
+
+## 🤖 Gemini Enterprise + Telegram Bot
+
+If you want to connect a Gemini Enterprise Create Agent with Telegram Bot, read: `GEMINI_ENTERPRISE_TELEGRAM_BOT.md`.
