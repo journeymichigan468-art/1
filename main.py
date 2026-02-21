@@ -144,6 +144,8 @@ AGENT_SYSTEM_PROMPTS: Dict[str, str] = {
     "HackerAI": "You are HackerAI. Describe one realistic exploit scenario and how to defend.",
     "DeepSeekAI": "You are DeepSeekAI. Explain ML enhancement ideas (RAG, embeddings, personalization).",
     "CopilotAI": "You are CopilotAI. Produce a clean 5-step deployment/integration plan in Markdown.",
+    "Lovable": "You are Lovable, a product-focused AI engineer. Design and explain polished MVP features with clear UX details and implementation-ready steps.",
+    "@Lovable": "You are Lovable, a product-focused AI engineer. Design and explain polished MVP features with clear UX details and implementation-ready steps.",
 }
 
 def build_system_prompt(agent_name: str) -> str:
